@@ -67,9 +67,9 @@
         "empty_data": "Stanje podsustava nepoznato"
     },
     "unifi_drive": {
-        "healthy": "Zdravo",
-        "degraded": "Degradirano",
-        "no_data": "Nema dostupnih podataka spremišta"
+        "healthy": "Healthy",
+        "degraded": "Degraded",
+        "no_data": "No storage data available"
     },
     "docker": {
         "rx": "RX",
@@ -116,7 +116,7 @@
         "playing": "Reprodukcija u tijeku",
         "transcoding": "Prekodiranje",
         "bitrate": "Stopa bitova",
-        "no_active": "Nema aktivnih prijenosa",
+        "no_active": "No Active Streams",
         "movies": "Filmovi",
         "series": "Serije",
         "episodes": "Epizode",
@@ -190,8 +190,8 @@
         "plex_connection_error": "Provjeri Plex vezu"
     },
     "tracearr": {
-        "no_active": "Nema aktivnih prijenosa",
-        "streams": "Prijenosi",
+        "no_active": "No Active Streams",
+        "streams": "Streams",
         "transcodes": "Prekodiranja",
         "directplay": "Izravna reprodukcija",
         "bitrate": "Stopa bitova"
@@ -344,16 +344,6 @@
         "address": "Adresa",
         "expires": "Isteče",
         "never": "Nikada",
-        "user": "Korisnik",
-        "hostname": "Ime računala",
-        "name": "Ime",
-        "client_version": "Verzija klijenta",
-        "os": "OS",
-        "created": "Stvoreno",
-        "authorized": "Autorizirano",
-        "is_external": "Je eksterna",
-        "update_available": "Dostupna je nova verzija",
-        "tags": "Oznake",
         "last_seen": "Zadnje viđeno",
         "now": "Sada",
         "years": "{{number}} god",
@@ -362,9 +352,7 @@
         "hours": "{{number}} h",
         "minutes": "{{number}} min",
         "seconds": "{{number}} s",
-        "ago": "Prije {{value}}",
-        "true": "Da",
-        "false": "Ne"
+        "ago": "Prije {{value}}"
     },
     "technitium": {
         "totalQueries": "Upiti",
@@ -636,8 +624,8 @@
         "resources": "Resursi",
         "targets": "Ciljevi",
         "traffic": "Promet",
-        "in": "Ulaz",
-        "out": "Izlaz"
+        "in": "In",
+        "out": "Out"
     },
     "peanut": {
         "battery_charge": "Napunjenost baterije",
@@ -737,7 +725,7 @@
     },
     "dispatcharr": {
         "channels": "Kanali",
-        "streams": "Prijenosi"
+        "streams": "Streams"
     },
     "mylar": {
         "series": "Serije",
@@ -936,19 +924,6 @@
         "warnings": "Upozorenja",
         "criticals": "Kritično"
     },
-    "ntfy": {
-        "title": "Naslov",
-        "priority": "Prioritet",
-        "lastReceived": "Zadnji primitak",
-        "message": "Poruka",
-        "tags": "Oznake",
-        "none": "Ništa",
-        "min": "Min.",
-        "low": "Nisko",
-        "default": "Standardno",
-        "high": "Visoko",
-        "urgent": "Hitno"
-    },
     "plantit": {
         "events": "Događaji",
         "plants": "Biljke",
@@ -1134,7 +1109,7 @@
         "unhealthy": "Nezdravo",
         "unknown": "Nepoznato",
         "servers": "Serveri",
-        "stacks": "Stogovi",
+        "stacks": "Stacks",
         "containers": "Kontejneri"
     },
     "filebrowser": {
@@ -1200,7 +1175,7 @@
         "volumes": "Jedinice memorije",
         "events_today": "Događanja danas",
         "pending_updates": "Aktualiziranja na čekanju",
-        "stacks": "Stogovi",
+        "stacks": "Stacks",
         "paused": "Pauzirano",
         "total": "Ukupno",
         "environment_not_found": "Okruženje nije pronađeno"

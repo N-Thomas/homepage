@@ -30,12 +30,10 @@ export default function Component({ service }) {
     );
   }
 
-  if (
-    statsData.completed === undefined &&
-    (widget.fields.includes("completed") || widget.fields.includes("available"))
-  ) {
-    // Fallback to "available" if "completed" requested but not available
-    widget.fields = widget.fields.map((field) => (field === "completed" ? "available" : field));
+  if (statsData.completed === undefined) {
+    // Newer versions added "completed", fallback to available
+    widget.fields = widget.fields.filter((field) => field !== "completed");
+    widget.fields.push("available");
   }
 
   return (

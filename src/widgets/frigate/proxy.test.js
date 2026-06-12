@@ -7,7 +7,6 @@ const { httpProxy, getServiceWidget, cookieJar, logger } = vi.hoisted(() => ({
   getServiceWidget: vi.fn(),
   cookieJar: {
     addCookieToJar: vi.fn(),
-    setCookieHeader: vi.fn(),
   },
   logger: {
     debug: vi.fn(),
@@ -131,9 +130,6 @@ describe("widgets/frigate/proxy", () => {
     await frigateProxyHandler(req, res);
 
     expect(cookieJar.addCookieToJar).toHaveBeenCalled();
-    expect(cookieJar.setCookieHeader).toHaveBeenCalledWith("http://frigate/api/stats", expect.any(Object), {
-      overwrite: true,
-    });
     expect(res.statusCode).toBe(200);
     expect(res.body).toEqual({ num_cameras: 2, uptime: 123, version: "1.0" });
   });

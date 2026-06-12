@@ -47,34 +47,15 @@ categories:
       - 'documentation'
 
 autolabeler:
-  - label: 'bug'
-    title:
-      - '/^fix(\(.+\))?:/i'
-    body:
-      - '/- \[[xX]\] Bug fix \(non-breaking change which fixes an issue\)/'
-
-  - label: 'enhancement'
-    title:
-      - '/^(feature|enhancement)(\(.+\))?:/i'
-    body:
-      - '/- \[[xX]\] New service widget/'
-      - '/- \[[xX]\] New feature or enhancement \(non-breaking change which adds functionality\)/'
-
   - label: 'documentation'
-    title:
-      - '/^(documentation|docs)(\(.+\))?:/i'
-    body:
-      - '/- \[[xX]\] Documentation only/'
-
-  - label: 'chore'
-    body:
-      - '/- \[[xX]\] Other \(please explain\)/'
+    files:
+      - 'docs/**'
+      - '*.md'
+      - '.github/**/*.md'
 
   - label: 'ci'
-    branch:
-      - '/^(ci|workflow|actions)\//'
-    title:
-      - '/^(ci|workflow|actions)(\(.+\))?:/i'
+    files:
+      - '.github/workflows/**'
 
   - label: 'dependencies'
     files:
@@ -82,6 +63,19 @@ autolabeler:
       - 'pnpm-lock.yaml'
       - 'pyproject.toml'
       - 'uv.lock'
+
+  - label: 'feature'
+    files:
+      - 'src/components/**'
+      - 'src/widgets/**'
+      - 'src/pages/**'
+      - 'src/utils/**'
+
+  - label: 'chore'
+    files:
+      - 'Dockerfile*'
+      - 'docker-entrypoint.sh'
+      - 'k3d/**'
 
   - label: 'translation'
     files:

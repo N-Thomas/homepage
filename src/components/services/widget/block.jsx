@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { useTranslation } from "next-i18next/pages";
+import { useTranslation } from "next-i18next";
 import { useContext, useMemo } from "react";
 
 import { BlockHighlightContext } from "./highlight-context";

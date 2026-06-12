@@ -18,7 +18,7 @@ function addCookieHandler(url, params) {
   // handle cookies during redirects
   params.beforeRedirect = (options, responseInfo) => {
     addCookieToJar(options.href, responseInfo.headers);
-    setCookieHeader(options.href, options, { overwrite: true });
+    setCookieHeader(options.href, options);
   };
 }
 
@@ -224,43 +224,23 @@ function homepageDNSLookupFn() {
   };
 }
 
-const homepageLookup = homepageDNSLookupFn();
-const agentCache = new Map();
-
-function getAgent(protocol, disableIpv6) {
-  const cacheKey = `${protocol}:${disableIpv6 ? "ipv4" : "auto"}`;
-  const cachedAgent = agentCache.get(cacheKey);
-  if (cachedAgent) {
-    return cachedAgent;
-  }
-
-  const agentOptions = {
-    keepAlive: true,
-    ...(disableIpv6 ? { family: 4, autoSelectFamily: false } : { autoSelectFamilyAttemptTimeout: 500 }),
-    lookup: homepageLookup,
-  };
-
-  const agent =
-    protocol === "https:"
-      ? new https.Agent({ ...agentOptions, rejectUnauthorized: false })
-      : new http.Agent(agentOptions);
-
-  agentCache.set(cacheKey, agent);
-  return agent;
-}
-
 export async function httpProxy(url, params = {}) {
   const constructedUrl = new URL(url);
   const disableIpv6 = process.env.HOMEPAGE_PROXY_DISABLE_IPV6 === "true";
+  const agentOptions = {
+    ...(disableIpv6 ? { family: 4, autoSelectFamily: false } : { autoSelectFamilyAttemptTimeout: 500 }),
+    lookup: homepageDNSLookupFn(),
+  };
+
   let request = null;
   if (constructedUrl.protocol === "https:") {
     request = httpsRequest(constructedUrl, {
-      agent: getAgent(constructedUrl.protocol, disableIpv6),
+      agent: new https.Agent({ ...agentOptions, rejectUnauthorized: false }),
       ...params,
     });
   } else {
     request = httpRequest(constructedUrl, {
-      agent: getAgent(constructedUrl.protocol, disableIpv6),
+      agent: new http.Agent(agentOptions),
       ...params,
     });
   }

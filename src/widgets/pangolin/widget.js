@@ -9,7 +9,7 @@ const widget = {
       endpoint: "org/{org}/sites",
     },
     resources: {
-      endpoint: "org/{org}/resources?pageSize=200",
+      endpoint: "org/{org}/resources",
     },
   },
 };

@@ -1,11 +1,10 @@
-import { useTranslation } from "next-i18next/pages";
+import { useTranslation } from "next-i18next";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
 import Block from "../components/block";
 import Container from "../components/container";
 
-import { parseVersionForUrl } from "utils/proxy/api-helpers";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 const Chart = dynamic(() => import("../components/chart"), { ssr: false });
@@ -17,12 +16,11 @@ export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
   const { chart, refreshInterval = defaultInterval, pointsLimit = defaultPointsLimit, version = 3 } = widget;
-  const apiVersion = parseVersionForUrl(version, 3);
   const [, sensorName] = widget.metric.split(":");
 
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
 
-  const { data, error } = useWidgetAPI(service.widget, `${apiVersion}/sensors`, {
+  const { data, error } = useWidgetAPI(service.widget, `${version}/sensors`, {
     refreshInterval: Math.max(defaultInterval, refreshInterval),
   });
 

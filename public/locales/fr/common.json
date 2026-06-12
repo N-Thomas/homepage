@@ -67,9 +67,9 @@
         "empty_data": "Statut du sous-système inconnu"
     },
     "unifi_drive": {
-        "healthy": "Sain",
-        "degraded": "Dégradé",
-        "no_data": "Aucune données de stockage disponible"
+        "healthy": "Healthy",
+        "degraded": "Degraded",
+        "no_data": "No storage data available"
     },
     "docker": {
         "rx": "Rx",
@@ -115,12 +115,12 @@
     "jellyfin": {
         "playing": "En cours",
         "transcoding": "En cours d'encodage",
-        "bitrate": "Débit",
-        "no_active": "Aucune lecture en cours",
-        "movies": "Films",
-        "series": "Séries",
-        "episodes": "Épisodes",
-        "songs": "Chansons"
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "esphome": {
         "offline": "Hors ligne",
@@ -190,11 +190,11 @@
         "plex_connection_error": "Vérifier la connexion à Plex"
     },
     "tracearr": {
-        "no_active": "Aucune lecture en cours",
-        "streams": "Lectures",
-        "transcodes": "Transcodages",
-        "directplay": "Lectures directes",
-        "bitrate": "Débit"
+        "no_active": "No Active Streams",
+        "streams": "Streams",
+        "transcodes": "Transcodes",
+        "directplay": "Direct Play",
+        "bitrate": "Bitrate"
     },
     "omada": {
         "connectedAp": "APs connectées",
@@ -295,12 +295,12 @@
         "available": "Disponible"
     },
     "seerr": {
-        "pending": "En attente",
-        "approved": "Validées",
-        "available": "Disponibles",
-        "completed": "Complétées",
-        "processing": "En traitement",
-        "issues": "Problèmes non résolus"
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available",
+        "completed": "Completed",
+        "processing": "Processing",
+        "issues": "Open Issues"
     },
     "netalertx": {
         "total": "Total",
@@ -344,16 +344,6 @@
         "address": "Adresse",
         "expires": "Expire",
         "never": "Jamais",
-        "user": "Utilisateur",
-        "hostname": "Nom d'hôte",
-        "name": "Nom",
-        "client_version": "Version client",
-        "os": "OS",
-        "created": "Créé",
-        "authorized": "Autorisée",
-        "is_external": "Externe",
-        "update_available": "Mise à jour disponible",
-        "tags": "Tags",
         "last_seen": "Vu pour la dernière fois",
         "now": "Maintenant",
         "years": "{{number}}a",
@@ -362,9 +352,7 @@
         "hours": "{{number}}h",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
-        "ago": "Il y a {{value}}",
-        "true": "Oui",
-        "false": "Non"
+        "ago": "Il y a {{value}}"
     },
     "technitium": {
         "totalQueries": "Requêtes",
@@ -631,13 +619,13 @@
         "total": "Total"
     },
     "pangolin": {
-        "orgs": "Organisations",
+        "orgs": "Orgs",
         "sites": "Sites",
         "resources": "Ressources",
         "targets": "Cibles",
         "traffic": "Trafique",
-        "in": "Entrant",
-        "out": "Sortant"
+        "in": "In",
+        "out": "Out"
     },
     "peanut": {
         "battery_charge": "Charge de la batterie",
@@ -736,8 +724,8 @@
         "volumeAvailable": "Disponible"
     },
     "dispatcharr": {
-        "channels": "Chaînes",
-        "streams": "Lectures"
+        "channels": "Channels",
+        "streams": "Streams"
     },
     "mylar": {
         "series": "Séries",
@@ -828,10 +816,10 @@
         "series": "Séries"
     },
     "booklore": {
-        "libraries": "Bibliothèques",
-        "books": "Livres",
-        "reading": "En cours de lecture",
-        "finished": "Terminés"
+        "libraries": "Libraries",
+        "books": "Books",
+        "reading": "Reading",
+        "finished": "Finished"
     },
     "jdownloader": {
         "downloadCount": "File d'attente",
@@ -935,19 +923,6 @@
     "netdata": {
         "warnings": "Avertissements",
         "criticals": "Urgent"
-    },
-    "ntfy": {
-        "title": "Titre",
-        "priority": "Priorité",
-        "lastReceived": "Dernière réception",
-        "message": "Message",
-        "tags": "Tags",
-        "none": "Aucun",
-        "min": "Min",
-        "low": "Bas",
-        "default": "Défaut",
-        "high": "Haut",
-        "urgent": "Urgent"
     },
     "plantit": {
         "events": "Événements",
@@ -1185,30 +1160,30 @@
         "artists": "Artistes"
     },
     "arcane": {
-        "containers": "Conteneurs",
+        "containers": "Containers",
         "images": "Images",
-        "image_updates": "Mises à jour d'images",
-        "images_unused": "Inutilisées",
-        "environment_required": "ID d'environnement requis"
+        "image_updates": "Image Updates",
+        "images_unused": "Unused",
+        "environment_required": "Environment ID Required"
     },
     "dockhand": {
-        "running": "En cours d'exécution",
-        "stopped": "Arrêtés",
+        "running": "Running",
+        "stopped": "Stopped",
         "cpu": "CPU",
-        "memory": "Mémoire",
+        "memory": "Memory",
         "images": "Images",
         "volumes": "Volumes",
-        "events_today": "Événements aujourd'hui",
-        "pending_updates": "Mises à jour en attente",
+        "events_today": "Events Today",
+        "pending_updates": "Pending Updates",
         "stacks": "Stacks",
-        "paused": "En pause",
+        "paused": "Paused",
         "total": "Total",
-        "environment_not_found": "Environnement introuvable"
+        "environment_not_found": "Environment Not Found"
     },
     "sparkyfitness": {
-        "eaten": "Mangé",
-        "burned": "Brûlé",
-        "remaining": "Restant",
-        "steps": "Pas"
+        "eaten": "Eaten",
+        "burned": "Burned",
+        "remaining": "Remaining",
+        "steps": "Steps"
     }
 }

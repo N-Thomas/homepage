@@ -8,13 +8,6 @@ export default function validateWidgetData(widget, endpoint, data) {
   let dataParsed = data;
   let error;
   let mapping;
-  const mappings = widgets[widget.type]?.mappings;
-  if (mappings) {
-    mapping = Object.values(mappings).find((m) => m.endpoint === endpoint);
-  }
-
-  if (mapping?.allowEmpty && Buffer.isBuffer(data) && data.length === 0) return true;
-
   if (Buffer.isBuffer(data)) {
     try {
       dataParsed = JSON.parse(data);
@@ -30,11 +23,15 @@ export default function validateWidgetData(widget, endpoint, data) {
   }
 
   if (dataParsed && Object.entries(dataParsed).length) {
-    mapping?.validate?.forEach((key) => {
-      if (dataParsed[key] === undefined) {
-        valid = false;
-      }
-    });
+    const mappings = widgets[widget.type]?.mappings;
+    if (mappings) {
+      mapping = Object.values(mappings).find((m) => m.endpoint === endpoint);
+      mapping?.validate?.forEach((key) => {
+        if (dataParsed[key] === undefined) {
+          valid = false;
+        }
+      });
+    }
   }
 
   if (!valid) {

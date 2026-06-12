@@ -1,4 +1,4 @@
-import { useTranslation } from "next-i18next/pages";
+import { useTranslation } from "next-i18next";
 import useSWR from "swr";
 
 export default function ProxmoxStatus({ service, style }) {

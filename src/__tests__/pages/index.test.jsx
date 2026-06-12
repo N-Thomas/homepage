@@ -92,14 +92,14 @@ vi.mock("next/head", () => ({ default: ({ children }) => children }));
 vi.mock("next/script", () => ({ default: () => null }));
 vi.mock("next/router", () => ({ useRouter: () => router }));
 
-vi.mock("next-i18next/pages", () => ({
+vi.mock("next-i18next", () => ({
   useTranslation: () => ({
     i18n,
     t: (k) => k,
   }),
 }));
 
-vi.mock("next-i18next/pages/serverSideTranslations", () => ({
+vi.mock("next-i18next/serverSideTranslations", () => ({
   serverSideTranslations,
 }));
 
@@ -324,12 +324,13 @@ describe("pages/index Index routing + SWR branches", () => {
   });
 
   it("renders config errors when /api/validate returns a list of errors", async () => {
-    state.validateData = [{ config: "services.yaml", name: "Service 1", reason: "broken", mark: { line: 4 } }];
+    state.validateData = [{ config: "services.yaml", reason: "broken", mark: { snippet: "x: y" } }];
 
     await renderIndex({ initialSettings: { title: "Homepage", layout: {} }, settings: { layout: {} } });
 
-    expect(screen.getByText(/services.yaml/)).toBeInTheDocument();
-    expect(screen.getByText(/line 4/)).toBeInTheDocument();
+    expect(screen.getByText("services.yaml")).toBeInTheDocument();
+    expect(screen.getByText("broken")).toBeInTheDocument();
+    expect(screen.getByText("x: y")).toBeInTheDocument();
   });
 
   it("marks the UI stale when the hash changes and triggers a revalidate reload", async () => {
