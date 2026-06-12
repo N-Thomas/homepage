@@ -67,9 +67,9 @@
         "empty_data": "Статус подсистема непознат"
     },
     "unifi_drive": {
-        "healthy": "Здрав",
-        "degraded": "Деградирано",
-        "no_data": "Нема доступних података о складиштењу"
+        "healthy": "Healthy",
+        "degraded": "Degraded",
+        "no_data": "No storage data available"
     },
     "docker": {
         "rx": "RX",
@@ -344,16 +344,6 @@
         "address": "Адреса",
         "expires": "Истиче",
         "never": "Никада",
-        "user": "Корисник",
-        "hostname": "Име хоста",
-        "name": "Назив",
-        "client_version": "Верзија клијента",
-        "os": "ОС",
-        "created": "Креирано",
-        "authorized": "Овлашћено",
-        "is_external": "Је спољни",
-        "update_available": "Доступно ажурирање",
-        "tags": "Ознаке",
         "last_seen": "Последње виђен",
         "now": "Сада",
         "years": "{{number}}г",
@@ -362,9 +352,7 @@
         "hours": "{{number}}ч",
         "minutes": "{{number}}м",
         "seconds": "{{number}}с",
-        "ago": "Пре {{value}}",
-        "true": "Да",
-        "false": "Не"
+        "ago": "Пре {{value}}"
     },
     "technitium": {
         "totalQueries": "Упити",
@@ -936,19 +924,6 @@
         "warnings": "Упозорења",
         "criticals": "Критично"
     },
-    "ntfy": {
-        "title": "Назив",
-        "priority": "Приоритет",
-        "lastReceived": "Последње примљено",
-        "message": "Порука",
-        "tags": "Ознаке",
-        "none": "Без",
-        "min": "Мин",
-        "low": "Ниско",
-        "default": "Подразумевано",
-        "high": "Високо",
-        "urgent": "Хитно"
-    },
     "plantit": {
         "events": "Догађаји",
         "plants": "Биљке",
@@ -1206,9 +1181,9 @@
         "environment_not_found": "Окружење није пронађено"
     },
     "sparkyfitness": {
-        "eaten": "Поједено",
-        "burned": "Спаљено",
-        "remaining": "Преостало",
-        "steps": "Кораци"
+        "eaten": "Eaten",
+        "burned": "Burned",
+        "remaining": "Remaining",
+        "steps": "Steps"
     }
 }

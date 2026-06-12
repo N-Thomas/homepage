@@ -344,16 +344,6 @@
         "address": "Adresa",
         "expires": "Vyprší",
         "never": "Nikdy",
-        "user": "Uživatel",
-        "hostname": "Název zařízení",
-        "name": "Název",
-        "client_version": "Verze klienta",
-        "os": "OS",
-        "created": "Vytvořeno",
-        "authorized": "Autorizováno",
-        "is_external": "Je externí",
-        "update_available": "Dostupná aktualizace",
-        "tags": "Štítky",
         "last_seen": "Naposledy viděno",
         "now": "Nyní",
         "years": "{{number}}r",
@@ -362,9 +352,7 @@
         "hours": "{{number}}h",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
-        "ago": "Před {{value}}",
-        "true": "Ano",
-        "false": "Ne"
+        "ago": "Před {{value}}"
     },
     "technitium": {
         "totalQueries": "Dotazy",
@@ -702,7 +690,7 @@
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Datové úložiště",
-        "failed_tasks_24h": "Neúspěšné úlohy za 24h",
+        "failed_tasks_24h": "Neúspěšné úlohy 24h",
         "cpu_usage": "Využití procesoru",
         "memory_usage": "Využití paměti"
     },
@@ -935,19 +923,6 @@
     "netdata": {
         "warnings": "Upozornění",
         "criticals": "Kritické"
-    },
-    "ntfy": {
-        "title": "Název",
-        "priority": "Priorita",
-        "lastReceived": "Poslední přijetí",
-        "message": "Zpráva",
-        "tags": "Štítky",
-        "none": "Žádné",
-        "min": "Minimální",
-        "low": "Nízká",
-        "default": "Výchozí",
-        "high": "Vysoká",
-        "urgent": "Urgentní"
     },
     "plantit": {
         "events": "Události",

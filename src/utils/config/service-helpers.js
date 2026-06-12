@@ -10,7 +10,6 @@ import { getKubeConfig } from "utils/config/kubernetes";
 import * as shvl from "utils/config/shvl";
 import kubernetes from "utils/kubernetes/export";
 import createLogger from "utils/logger";
-import { parseVersionForUrl } from "utils/proxy/api-helpers";
 
 const logger = createLogger("service-helpers");
 
@@ -114,7 +113,7 @@ export async function servicesFromDocker() {
               }
               let substitutedVal = substituteEnvironmentVars(containerLabels[label]);
               if (value === "widget.version" || /^widgets\[\d+\]\.version$/.test(value)) {
-                substitutedVal = parseVersionForUrl(substitutedVal);
+                substitutedVal = parseInt(substitutedVal, 10);
               }
               shvl.set(constructedService, value, substitutedVal);
             }
@@ -591,7 +590,7 @@ export function cleanServiceGroups(groups) {
             "vikunja",
           ].includes(type)
         ) {
-          widget.version = parseVersionForUrl(version);
+          if (version) widget.version = parseInt(version, 10);
         }
         if (type === "glances") {
           if (metric) widget.metric = metric;
@@ -665,7 +664,6 @@ export function cleanServiceGroups(groups) {
           if (enableRecentEvents !== undefined) widget.enableRecentEvents = enableRecentEvents;
         }
         if (type === "technitium") {
-          if (node !== undefined) widget.node = node;
           if (range !== undefined) widget.range = range;
         }
         if (type === "lubelogger") {

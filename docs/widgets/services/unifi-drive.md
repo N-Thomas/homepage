@@ -19,6 +19,6 @@ widget:
   password: your_password
 ```
 
-!!! tip
+!!! hint
 
     If you enter incorrect credentials and receive an "API Error", you may need to recreate the container or restart the service to clear the cache.

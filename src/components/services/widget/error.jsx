@@ -1,4 +1,4 @@
-import { useTranslation } from "next-i18next/pages";
+import { useTranslation } from "next-i18next";
 import { IoAlertCircle } from "react-icons/io5";
 
 function displayError(error) {

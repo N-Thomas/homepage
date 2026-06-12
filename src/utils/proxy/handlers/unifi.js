@@ -97,7 +97,7 @@ export default function createUnifiProxyHandler({
       }
 
       addCookieToJar(url, responseHeaders);
-      setCookieHeader(url, params, { overwrite: true });
+      setCookieHeader(url, params);
 
       [status, contentType, data, responseHeaders] = await httpProxy(url, params);
     }

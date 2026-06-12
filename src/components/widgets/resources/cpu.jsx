@@ -1,4 +1,4 @@
-import { useTranslation } from "next-i18next/pages";
+import { useTranslation } from "next-i18next";
 import { FiCpu } from "react-icons/fi";
 import useSWR from "swr";
 

@@ -45,19 +45,16 @@ async function fetchFromPyloadAPI(url, sessionId, params, service) {
   return [status, returnData, responseHeaders];
 }
 
-async function fetchFromPyloadAPIWithCredentials(url, params, username, password, key) {
+async function fetchFromPyloadAPIBasic(url, params, username, password) {
   const parsedUrl = new URL(url);
   const isGetRequest = !params || Object.keys(params).length === 0;
 
   const options = {
     method: isGetRequest ? "GET" : "POST",
+    headers: {
+      Authorization: `Basic ${Buffer.from(`${username}:${password}`).toString("base64")}`,
+    },
   };
-
-  if (key) {
-    options.headers = { "X-API-Key": key };
-  } else {
-    options.headers = { Authorization: `Basic ${Buffer.from(`${username}:${password}`).toString("base64")}` };
-  }
 
   if (isGetRequest) {
     if (params) {
@@ -109,16 +106,10 @@ export default async function pyloadProxyHandler(req, res, map = {}) {
         const url = new URL(formatApiCall(apiTemplate, { endpoint, ...widget }));
         const ngUrl = ngEndpoint ? new URL(formatApiCall(apiTemplate, { endpoint: ngEndpoint, ...widget })) : url;
         const loginUrl = `${widget.url}/api/login`;
-        const hasCredentials = widget.key || (widget.username && widget.password);
+        const hasCredentials = widget.username && widget.password;
 
         if (hasCredentials) {
-          const [status, data] = await fetchFromPyloadAPIWithCredentials(
-            ngUrl,
-            null,
-            widget.username,
-            widget.password,
-            widget.key,
-          );
+          const [status, data] = await fetchFromPyloadAPIBasic(ngUrl, null, widget.username, widget.password);
 
           if (status === 200 && !data?.error) {
             cache.put(`${isNgCacheKey}.${service}`, true);
@@ -126,7 +117,9 @@ export default async function pyloadProxyHandler(req, res, map = {}) {
           }
 
           if (status === 401) {
-            return res.status(status).send({ error: "Invalid credentials communicating with Pyload API", data });
+            return res
+              .status(status)
+              .send({ error: { message: "Invalid credentials communicating with Pyload API", data } });
           }
         }
 

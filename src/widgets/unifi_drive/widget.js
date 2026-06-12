@@ -6,7 +6,7 @@ const widget = {
 
   mappings: {
     storage: {
-      endpoint: "v2/storage",
+      endpoint: "v1/systems/storage?type=detail",
     },
   },
 };
