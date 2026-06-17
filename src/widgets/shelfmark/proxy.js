@@ -135,8 +135,11 @@ function summarizeStatusEntries(payload) {
 
   return Object.fromEntries(
     Object.entries(payload)
-    .filter(([key, value]) => allowedStatusKeys.has(key) && value && typeof value === "object")
+    .filter(([key, value]) => allowedStatusKeys.has(key) && (typeof value === "number" || (value && typeof value === "object")))
     .map(([key, value]) => {
+      if (typeof value === "number") {
+        return [key, value];
+      }
       if (Array.isArray(value)) {
         return [key, value.length];
       }
@@ -176,7 +179,13 @@ export default async function shelfmarkProxyHandler(req, res) {
     return res.status(status || 500).send(data || { error: "Error fetching status" });
   }
 
-  return res.status(200).send({
-    statuses: summarizeStatusEntries(data),
-  });
+  const statuses = summarizeStatusEntries(data);
+
+  // Merge pending request count as "requested" from the requests admin endpoint
+  const { data: requestsData, status: requestsStatus } = await apiCall(widget, "admin/requests/count", service);
+  if (requestsStatus === 200 && requestsData && typeof requestsData.pending === "number") {
+    statuses.requested = requestsData.pending;
+  }
+
+  return res.status(200).send({ statuses });
 }
